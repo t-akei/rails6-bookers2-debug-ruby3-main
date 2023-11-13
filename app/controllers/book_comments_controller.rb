@@ -9,12 +9,12 @@ class BookCommentsController < ApplicationController
 
   def destroy
   end
-  
-  
+
+
   private
-  
+
   def book_comment_params
     params.require(:bookcomment).permit(:comment)
   end
-  
+
 end
