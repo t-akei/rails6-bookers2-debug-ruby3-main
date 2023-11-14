@@ -21,6 +21,7 @@
             <td><%= link_to 'Edit', edit_book_path(@book), class: "btn btn-sm btn-success" %></td>
             <td><%= link_to 'Destroy', @book, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-sm btn-danger"%></td>
           <% end %>
+          <td><%= "#{ @book.book_comments.count } コメント" %></td>
         </tr>
       </table>
     </div>
@@ -28,9 +29,15 @@
 </div>
 
 <div>
-  <p>コメント数 : <%= @book.book_comments.count %></p>
+  <p>コメント数 : </p>
   <% @book.book_comments.each do |book_comment| %>
     <p><%= image_tag book_comment.user.get_profile_image(100, 100) %></p>
     <%= book_comment.user.name %>
-  <% end 
+  <% end %>
+</div>
+<div>
+  <%= form_with model: [@book, @book_comment] do |f| %>
+    <%= f.text_area :comment, rows: '5' %>
+    <%= f.submit "送信" %>
+  <% end %>
 </div>
