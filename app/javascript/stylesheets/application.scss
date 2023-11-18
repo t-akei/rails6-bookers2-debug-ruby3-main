@@ -1,1 +1,9 @@
-@use "~bootstrap/scss/bootstrap"; 
+@use "~bootstrap/scss/bootstrap";
+
+.unlike-btn {
+  color: red;
+}
+
+.like-btn {
+  color: blue;
+}
