@@ -24,13 +24,13 @@
           <td>
             <% if @book.favorited_by?(current_user) %>
               <%= link_to book_favorites_path(@book), method: :delete do %>
-                <i class="far fa-heart unlike-btn"></i><%= @book.favorites.count %>
+                <i class="fa-solid fa-heart unlike-btn"></i><p class="red-count"><%= @book.favorites.count %></p>
               <% end %>
 
             <% else %>
 
               <%= link_to book_favorites_path(@book), method: :post do %>
-                <i class="far fa-heart like-btn"></i><%= @book.favorites.count %>
+                <i class="fa-solid fa-heart like-btn"></i><P class="blue-count"><%= @book.favorites.count %></P>
               <% end %>
             <% end %>
           </td>
